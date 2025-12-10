@@ -52,4 +52,8 @@ public class Address {
             this.postalCode = null;
         }
     }
+
+    public enum Province {
+        ON, QC, MB, BC, AB, NB, NS, PE, NL
+    }
 }
