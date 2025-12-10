@@ -10,9 +10,9 @@ import lombok.ToString;
 @Getter
 public class Department {
     private String departmentId;
-    private String departmentName;
+    @Setter private String departmentName;
 
-    public static int nextId = 1;
+    private static int nextId = 1;
 
     /**
      * Checks if the department name is valid or not
@@ -25,7 +25,7 @@ public class Department {
         }
 
         for (char c : departmentName.toCharArray()) {
-            if (!Character.isLetter(c) || c != ' ') {
+            if (!Character.isLetter(c) && c != ' ') {
                 return false;
             }
         }
