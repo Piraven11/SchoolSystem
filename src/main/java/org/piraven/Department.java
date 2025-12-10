@@ -2,6 +2,7 @@ package org.piraven;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
@@ -30,5 +31,15 @@ public class Department {
         }
 
         return true;
+    }
+
+    public Department(String departmentName) {
+        if (isDepartmentNameValid(departmentName)) {
+            this.departmentName = departmentName;
+            this.departmentId = String.format("D%02d", nextId++);
+        } else {
+            this.departmentName = null;
+            this.departmentId = null;
+        }
     }
 }
