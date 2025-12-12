@@ -1,5 +1,12 @@
 package org.piraven;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@EqualsAndHashCode
+@Setter
+@Getter
 public class Student {
     private String studentId;
     private String studentName;
@@ -9,5 +16,13 @@ public class Student {
     private ArrayList<Course> registeredCourses;
 
     private static int nextId = 1;
+
+    public enum Gender {
+        MALE, FEMALE
+    }
+
+    public boolean registerCourse(Course course) {
+
+    }
 
 }
