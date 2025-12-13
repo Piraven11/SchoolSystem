@@ -1,6 +1,5 @@
 package org.piraven;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,16 +24,16 @@ public class Assignment {
     public void generateRandomScores() {
         Random random = new Random();
 
-        int randomValue = random.nextInt(0, 10 + 1);
+        int randomNum = random.nextInt(0, 10 + 1);
         int randomScore;
 
-        if (randomValue == 0) {
+        if (randomNum == 0) {
             randomScore = random.nextInt(0, 60 + 1);
-        } else if (randomValue == 1 || randomValue == 2) {
+        } else if (randomNum == 1 || randomNum == 2) {
             randomScore = random.nextInt(60, 70 + 1);
-        } else if (randomValue == 3 || randomValue == 4) {
+        } else if (randomNum == 3 || randomNum == 4) {
             randomScore = random.nextInt(70, 80 + 1);
-        } else if (randomValue == 5 || randomValue == 6 || randomValue == 7 || randomValue == 8) {
+        } else if (randomNum == 5 || randomNum == 6 || randomNum == 7 || randomNum == 8) {
             randomScore = random.nextInt(80, 90 + 1);
         } else {
             randomScore = random.nextInt(90, 100 + 1);
@@ -46,7 +45,7 @@ public class Assignment {
     @Override
     public String toString() {
         return "Assignment{" +
-                String.format("assignmentId='" + nextId++) + '\'' +
+                "assignmentId=" + String.format("%05d" + nextId++) + '\'' +
                 ", assignmentName=" + assignmentName + '\'' +
                 ", weight=" + weight +
                 '}';
