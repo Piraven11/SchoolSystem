@@ -11,4 +11,14 @@ public class Assignment {
 
     private static int nextId = 1;
 
+    public void calcAssignmentAvg() {
+        double sum = 0;
+
+        for (int score : scores) {
+            sum += score;
+        }
+
+        double avg = sum / scores.size();
+    }
+
 }
