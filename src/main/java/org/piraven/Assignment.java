@@ -42,4 +42,13 @@ public class Assignment {
 
         scores.add(randomScore);
     }
+
+    @Override
+    public String toString() {
+        return "Assignment{" +
+                String.format("assignmentId='" + nextId++) + '\'' +
+                ", assignmentName=" + assignmentName + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }
