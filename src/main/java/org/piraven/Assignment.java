@@ -15,6 +15,9 @@ public class Assignment {
 
     private static int nextId = 1;
 
+    /**
+     * calculates the average score for the assignment
+     */
     public void calcAssignmentAvg() {
         if (scores.isEmpty()) {
             double avg = 0;
@@ -29,6 +32,9 @@ public class Assignment {
         double avg = sum / scores.size();
     }
 
+    /**
+     * generates random scores for all students in an assignment
+     */
     public void generateRandomScores() {
         Random random = new Random();
 
