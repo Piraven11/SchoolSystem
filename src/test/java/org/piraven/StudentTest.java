@@ -58,7 +58,6 @@ class StudentTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
     @Test
     @DisplayName("remove registered course from the student's course list -> true")
     void testDropCourse1() {
