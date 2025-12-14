@@ -12,6 +12,10 @@ public class Assignment {
     private static int nextId = 1;
 
     public void calcAssignmentAvg() {
+        if (scores.isEmpty()) {
+            double avg = 0;
+        }
+
         double sum = 0;
 
         for (int score : scores) {
