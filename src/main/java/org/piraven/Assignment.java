@@ -65,4 +65,11 @@ public class Assignment {
                 ", weight=" + weight +
                 '}';
     }
+
+    public Assignment(String assignmentName, double weight, int maxScore) {
+        this.assignmentId = String.format("%05d",  nextId++);
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.scores = new ArrayList<>();
+    }
 }
