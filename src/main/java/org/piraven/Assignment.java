@@ -44,7 +44,7 @@ public class Assignment {
         } else if (randomNum == 5 || randomNum == 6 || randomNum == 7 || randomNum == 8) {
             randomScore = random.nextInt(80, 90);
         } else {
-            randomScore = random.nextInt(90, 100);
+            randomScore = random.nextInt(90, 100 + 1);
         }
 
         scores.add(randomScore);
