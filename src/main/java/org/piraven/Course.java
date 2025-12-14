@@ -182,4 +182,13 @@ public class Course {
 
         System.out.println();
     }
+
+    public String toSimplifiedString() {
+        return "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", credits=" + credits +
+                ", departmentName=" + department.getDepartmentName() +
+                '}';
+    }
 }
