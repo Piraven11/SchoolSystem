@@ -1,6 +1,7 @@
 package org.piraven;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Assignment {
@@ -44,6 +45,13 @@ public class Assignment {
         }
 
         scores.add(randomScore);
+    }
+
+    public Assignment(String assignmentId, String assignmentName, double weight) {
+        this.assignmentId = String.format("%05d", nextId++);
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.scores = new ArrayList<>();
     }
 
     @Override
