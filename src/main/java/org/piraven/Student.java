@@ -60,7 +60,7 @@ public class Student {
      * @return if the course is removed from the student's registered courses list or not
      */
     public boolean dropCourse(Course course) {
-        if (!(registeredCourses.contains(course))) {
+        if (!registeredCourses.contains(course)) {
             return false;
         }
 
