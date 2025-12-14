@@ -12,7 +12,8 @@ public class Course {
     private double credits;
     private Department department;
     private ArrayList<Assignment> assignments;
-    public ArrayList<Student> registeredStudents;
+    private ArrayList<Student> registeredStudents;
+    private ArrayList<Integer> finalScores;
 
     private static int nextId = 1;
 
@@ -39,5 +40,27 @@ public class Course {
         }
 
         return sum == sumOfWeights;
+    }
+
+    /**
+     * adds a student to the student list of the course, also add a new null element
+     * to each assignment of this course, and add a new null element for the finalScores
+     * @param student the input student
+     * @return the student is registered to the student list of teh course or not
+     */
+    public boolean registerStudent(Student student) {
+        if (registeredStudents.contains(student)) {
+            return false;
+        }
+
+        registeredStudents.add(student);
+
+        for  (Assignment assignment : assignments) {
+            assignment.getScores().add(null);
+
+            finalScores.add(null);
+        }
+
+        return true;
     }
 }
