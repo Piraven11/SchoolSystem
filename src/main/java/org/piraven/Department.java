@@ -45,7 +45,7 @@ public class Department {
     public void setDepartmentName(String departmentName) {
         if (isDepartmentNameValid(departmentName)) {
             this.departmentName = departmentName;
-        } else  {
+        } else {
             this.departmentName = null;
             this.departmentId = null;
         }
