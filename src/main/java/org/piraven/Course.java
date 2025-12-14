@@ -191,4 +191,30 @@ public class Course {
                 ", departmentName=" + department.getDepartmentName() +
                 '}';
     }
+
+    @Override
+    public String toString() {
+        String result = "Course ID: " + courseId +
+                ", Name: " + courseName +
+                ", Credits: " + credits +
+                ", Department: " + department.getDepartmentName() +
+                "\n";
+
+        result += "Assignments: ";
+        for (Assignment assign : assignments) {
+            result += assign.getAssignmentName() + " (" + assign.getWeight() + "%), ";
+        }
+        result += "\n";
+
+        result += "Students: ";
+        for (Student student : registeredStudents) {
+            result += student.getStudentId() + " - " + student.getStudentName() +
+                    " (" + student.getDepartment().getDepartmentName() + "), ";
+        }
+        result += "\n";
+
+        result += "Assignment weights valid: " + isAssignmentWeightValid();
+
+        return result;
+    }
 }
