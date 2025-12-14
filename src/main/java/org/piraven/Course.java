@@ -82,15 +82,34 @@ public class Course {
                 if (score != null) {
                     double weight = assignment.getWeight();
 
-                    studentWeightedAverage += (weight * score);
+                    studentWeightedAverage += ((weight / 100.0) * score);
                 }
             }
 
-            finalScores.add(studentWeightedAverage);
+            int roundedStudentAverage = (int) Math.round(studentWeightedAverage);
 
-            finalScoresArray[idx] = (int) Math.round(studentWeightedAverage);
+            finalScores.add((double)roundedStudentAverage);
+            finalScoresArray[idx] = roundedStudentAverage;
         }
 
         return finalScoresArray;
+    }
+
+    /**
+     *  Adds a new assignment to the course
+     * @param assignmentName the input name
+     * @param weight the weight of the added assignment
+     * @param maxScore the max score of the added assignment
+     * @return the new assignment in the course list
+     */
+    public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+        Assignment newAssignment = new Assignment(assignmentName, weight, maxScore);
+        assignments.add(newAssignment);
+
+        for (int i = 0; i < assignments.size(); i++) {
+            newAssignment.getScores().add(null);
+        }
+
+        return true;
     }
 }
