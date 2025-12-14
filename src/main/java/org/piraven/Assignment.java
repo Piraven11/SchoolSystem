@@ -1,7 +1,6 @@
 package org.piraven;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Assignment {
@@ -33,22 +32,22 @@ public class Assignment {
         int randomScore;
 
         if (randomNum == 0) {
-            randomScore = random.nextInt(0, 60 + 1);
+            randomScore = random.nextInt(0, 60);
         } else if (randomNum == 1 || randomNum == 2) {
-            randomScore = random.nextInt(60, 70 + 1);
+            randomScore = random.nextInt(60, 70);
         } else if (randomNum == 3 || randomNum == 4) {
-            randomScore = random.nextInt(70, 80 + 1);
+            randomScore = random.nextInt(70, 80);
         } else if (randomNum == 5 || randomNum == 6 || randomNum == 7 || randomNum == 8) {
-            randomScore = random.nextInt(80, 90 + 1);
+            randomScore = random.nextInt(80, 90);
         } else {
-            randomScore = random.nextInt(90, 100 + 1);
+            randomScore = random.nextInt(90, 100);
         }
 
         scores.add(randomScore);
     }
 
     public Assignment(String assignmentId, String assignmentName, double weight) {
-        this.assignmentId = String.format("%05d", nextId++);
+        this.assignmentId = String.format("%d", nextId++);
         this.assignmentName = assignmentName;
         this.weight = weight;
         this.scores = new ArrayList<>();
@@ -57,8 +56,8 @@ public class Assignment {
     @Override
     public String toString() {
         return "Assignment{" +
-                "assignmentId=" + String.format("%05d" + nextId++) + '\'' +
-                ", assignmentName=" + assignmentName + '\'' +
+                "assignmentId='" + assignmentId + '\'' +
+                ", assignmentName='" + assignmentName + '\'' +
                 ", weight=" + weight +
                 '}';
     }
