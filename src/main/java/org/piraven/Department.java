@@ -2,7 +2,6 @@ package org.piraven;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @ToString
@@ -10,7 +9,7 @@ import lombok.ToString;
 @Getter
 public class Department {
     private String departmentId;
-    @Setter private String departmentName;
+    private String departmentName;
 
     private static int nextId = 1;
 
@@ -38,6 +37,15 @@ public class Department {
             this.departmentName = departmentName;
             this.departmentId = String.format("D%02d", nextId++);
         } else {
+            this.departmentName = null;
+            this.departmentId = null;
+        }
+    }
+
+    public void setDepartmentName(String departmentName) {
+        if (isDepartmentNameValid(departmentName)) {
+            this.departmentName = departmentName;
+        } else  {
             this.departmentName = null;
             this.departmentId = null;
         }
