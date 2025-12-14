@@ -135,4 +135,51 @@ public class Course {
 
         this.calcStudentsAverage();
     }
+
+    /**
+     * displays the scores of a course in a table, with the assignment averages and student weighted average
+     */
+    public void displayScores() {
+        System.out.println("Course:" + courseName + "(" + courseId + ")" );
+        System.out.println();
+
+        System.out.printf("%-18s", "");
+        for (Assignment assignment : assignments) {
+            System.out.printf("-13s", assignment.getAssignmentName());
+        }
+
+        System.out.printf("%-13s%n", "final Score");
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            Student student = registeredStudents.get(i);
+
+            System.out.printf("%-18s", student.getStudentName());
+
+            for (Assignment assignment : assignments) {
+                Integer score = assignment.getScores().get(i);
+                System.out.printf("%-13s", score == null ? "-" : score);
+            }
+
+            System.out.printf("%-15d%n", finalScores.get(i));
+        }
+
+        System.out.printf("%-18s", "Average");
+
+        for (Assignment assignment : assignments) {
+            int sum = 0;
+            int count = 0;
+
+            for (Integer score: assignment.getScores()) {
+                if (score != null) {
+                    sum += score;
+                    count++;
+                }
+            }
+
+            int avg = count == 0 ? 0 : Math.round(sum / count);
+            System.out.printf("%-13d", avg);
+        }
+
+        System.out.println();
+    }
 }
