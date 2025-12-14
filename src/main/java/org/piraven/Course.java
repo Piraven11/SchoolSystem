@@ -13,7 +13,7 @@ public class Course {
     private Department department;
     private ArrayList<Assignment> assignments;
     private ArrayList<Student> registeredStudents;
-    private ArrayList<Integer> finalScores;
+    private ArrayList<Double> finalScores;
 
     private static int nextId = 1;
 
@@ -62,5 +62,35 @@ public class Course {
         }
 
         return true;
+    }
+
+    /**
+     * calculates the weighted average score of a student
+     * @return the weighted average score of a student
+     */
+    public int[] calcStudentAverage() {
+        int numberOfStudents = registeredStudents.size();
+
+        int[] finalScoresArray = new int[numberOfStudents];
+
+        for (int idx = 0; idx < numberOfStudents; idx++) {
+            double studentWeightedAverage = 0.0;
+
+            for (Assignment assignment : assignments) {
+                Integer score = assignment.getScores().get(idx);
+
+                if (score != null) {
+                    double weight = assignment.getWeight();
+
+                    studentWeightedAverage += (weight * score);
+                }
+            }
+
+            finalScores.add(studentWeightedAverage);
+
+            finalScoresArray[idx] = (int) Math.round(studentWeightedAverage);
+        }
+
+        return finalScoresArray;
     }
 }
