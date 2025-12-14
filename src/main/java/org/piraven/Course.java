@@ -24,4 +24,20 @@ public class Course {
         this.assignments = new ArrayList<>();
         this.registeredStudents = new ArrayList<>();
     }
+
+    /**
+     *checks if the sum of weights of all assignments
+     * of that course equals to 100%
+     * @return the sum of course is equal to 100% or not
+     */
+    public boolean isAssignmentWeightValid() {
+        double sum = 0;
+        double sumOfWeights = 100;
+
+        for (Assignment assignment : assignments) {
+            sum += assignment.getWeight();
+        }
+
+        return sum == sumOfWeights;
+    }
 }
