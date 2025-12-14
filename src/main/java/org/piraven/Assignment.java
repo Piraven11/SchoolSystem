@@ -1,8 +1,12 @@
 package org.piraven;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.util.ArrayList;
 import java.util.Random;
 
+@Setter
+@Getter
 public class Assignment {
     private String assignmentId;
     private String assignmentName;
