@@ -31,4 +31,25 @@ public class Student {
         this.registeredCourses = new ArrayList<>();
         this.department = department;
     }
+
+    /**
+     * Adds the input course to the student's registered courses list and add the student
+     * to the course's registered student list
+     * @param course the input course
+     * @return if the student is registered or not to the course
+     */
+    public boolean registerCourse(Course course) {
+        if (registeredCourses.contains(course)) {
+            return false;
+        }
+
+        registeredCourses.add(course);
+        course.getRegisteredStudents().add(this);
+
+        for (Assignment assignment : course.getAssignments()) {
+            assignment.getScores().add(null);
+        }
+
+        return true;
+    }
 }
