@@ -20,7 +20,7 @@ public class Course {
 
     public Course(String courseName, double credits, Department department) {
         this.courseId = "C" + "-" + department.getDepartmentId() + "-" + String.format("%02d", nextId++);
-        this.courseName = courseName;
+        this.courseName = Util.toTitleCase(courseName);
         this.credits = credits;
         this.department = department;
         this.assignments = new ArrayList<>();
