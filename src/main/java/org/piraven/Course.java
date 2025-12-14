@@ -3,6 +3,7 @@ package org.piraven;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.ArrayList;
+import java.util.Random;
 
 @Getter
 @Setter
@@ -68,7 +69,7 @@ public class Course {
      * calculates the weighted average score of a student
      * @return the weighted average score of a student
      */
-    public int[] calcStudentAverage() {
+    public int[] calcStudentsAverage() {
         int numberOfStudents = registeredStudents.size();
 
         int[] finalScoresArray = new int[numberOfStudents];
@@ -111,5 +112,27 @@ public class Course {
         }
 
         return true;
+    }
+
+    /**
+     *  generates random scores for each assignment and student,
+     *  and calculates the final score for each student.
+     */
+
+    public void generatedScores() {
+        Random random = new Random();
+
+        int numOfStudents = registeredStudents.size();
+
+        for (Assignment assignment : assignments) {
+            for (int idx = 0; idx < numOfStudents; idx++) {
+                int maxScore = 100;
+                int randomScore = random.nextInt(maxScore);
+
+                assignment.getScores().set(idx, randomScore);
+            }
+        }
+
+        this.calcStudentsAverage();
     }
 }
