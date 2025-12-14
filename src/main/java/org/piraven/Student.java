@@ -69,4 +69,13 @@ public class Student {
 
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", departmentName=" + department.getDepartmentName() +
+                '}';
+    }
 }
