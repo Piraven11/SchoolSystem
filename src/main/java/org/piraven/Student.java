@@ -70,8 +70,7 @@ public class Student {
         return true;
     }
 
-    @Override
-    public String toString() {
+    public String toSimplifiedString() {
         return "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
