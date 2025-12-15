@@ -16,11 +16,13 @@ class StudentTest {
     void TestRegisterCourse1() {
         Student student = new Student("Carl Santosh", Student.Gender.MALE, address, dept);
         Course course1 = new Course("Discrete", 3.0, dept);
+
         course1.addAssignment("D1", 100.0, 100);
         course1.setRegisteredStudents(new ArrayList<>());
 
         boolean expected1 = true;
         boolean actual1 = student.registerCourse(course1);
+
         Assertions.assertEquals(expected1, actual1);
     }
 
@@ -29,6 +31,7 @@ class StudentTest {
     void testRegisterCourse2() {
         Student student = new Student("Carl Santosh", Student.Gender.FEMALE, address, dept);
         Course course1 = new Course("Discrete", 3.0, dept);
+
         course1.addAssignment("D1", 100.0, 100);
         course1.setRegisteredStudents(new ArrayList<>());
 
@@ -36,6 +39,7 @@ class StudentTest {
 
         boolean expected = false;
         boolean actual = student.registerCourse(course1);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -44,8 +48,9 @@ class StudentTest {
     void testRegisterCourse3() {
         Student student = new Student("Carl Santosh", Student.Gender.FEMALE, address, dept);
         Course course1 = new Course("Discrete", 3.0, dept);
-        course1.addAssignment("D1", 100.0, 100);
         Course course2 = new Course("Math", 3.0, dept);
+
+        course1.addAssignment("D1", 100.0, 100);
         course2.addAssignment("M1", 100.0, 100);
 
         course1.setRegisteredStudents(new ArrayList<>());
@@ -55,6 +60,7 @@ class StudentTest {
 
         boolean expected = true;
         boolean actual = student.registerCourse(course2);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -69,6 +75,7 @@ class StudentTest {
 
         boolean expected1 = true;
         boolean actual1 = student.dropCourse(course1);
+
         Assertions.assertEquals(expected1, actual1);
     }
 
@@ -81,6 +88,7 @@ class StudentTest {
 
         boolean expected1 = false;
         boolean actual1 = student.dropCourse(course1);
+
         Assertions.assertEquals(expected1, actual1);
     }
 
@@ -96,6 +104,7 @@ class StudentTest {
 
         boolean expected1 = true;
         boolean actual1 = student.dropCourse(course2);
+
         Assertions.assertEquals(expected1, actual1);
     }
 }

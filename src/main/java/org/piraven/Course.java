@@ -124,7 +124,6 @@ public class Course {
      *  generates random scores for each assignment and student,
      *  and calculates the final score for each student.
      */
-
     public void generatedScores() {
         Random random = new Random();
 
@@ -150,6 +149,7 @@ public class Course {
         System.out.println();
 
         System.out.printf("%-18s", "");
+
         for (Assignment assignment : assignments) {
             System.out.printf("-13s", assignment.getAssignmentName());
         }
@@ -207,18 +207,20 @@ public class Course {
                 "\n";
 
         result += "Assignments: ";
+
         for (Assignment assign : assignments) {
             result += assign.getAssignmentName() + " (" + assign.getWeight() + "%), ";
         }
-        result += "\n";
 
+        result += "\n";
         result += "Students: ";
+
         for (Student student : registeredStudents) {
             result += student.getStudentId() + " - " + student.getStudentName() +
                     " (" + student.getDepartment().getDepartmentName() + "), ";
         }
-        result += "\n";
 
+        result += "\n";
         result += "Assignment weights valid: " + isAssignmentWeightValid();
 
         return result;
