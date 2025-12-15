@@ -124,18 +124,9 @@ public class Course {
      *  generates random scores for each assignment and student,
      *  and calculates the final score for each student.
      */
-    public void generatedScores() {
-        Random random = new Random();
-
-        int numOfStudents = registeredStudents.size();
-
+    public void generateScores() {
         for (Assignment assignment : assignments) {
-            for (int idx = 0; idx < numOfStudents; idx++) {
-                int maxScore = 100;
-                int randomScore = random.nextInt(maxScore);
-
-                assignment.getScores().set(idx, randomScore);
-            }
+            assignment.generateRandomScores();
         }
 
         this.calcStudentsAverage();
