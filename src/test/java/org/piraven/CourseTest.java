@@ -117,7 +117,7 @@ class CourseTest {
     }
 
     @Test
-    @DisplayName("student1 and student2 average -> {63, 81}")
+    @DisplayName("student1 and student2 average -> {81, 85}")
     void TestCalcStudentsAverage2() {
         Course course = new Course("Linear", 3.0, dept);
         course.setRegisteredStudents(new ArrayList<>());
@@ -127,13 +127,17 @@ class CourseTest {
         course.addAssignment("A2", 50.0, 100);
         course.addAssignment("A3", 30.0, 100);
 
+        course.registerStudent(s1);
         course.registerStudent(s2);
 
         course.getAssignments().get(0).getScores().set(0, 100);
         course.getAssignments().get(1).getScores().set(0, 69);
         course.getAssignments().get(2).getScores().set(0, 89);
+        course.getAssignments().get(0).getScores().set(1, 67);
+        course.getAssignments().get(1).getScores().set(1, 89);
+        course.getAssignments().get(2).getScores().set(1, 90);
 
-        int[] expected = {81};
+        int[] expected = {81, 85};
         int[] actual = course.calcStudentsAverage();
 
         Assertions.assertArrayEquals(expected, actual);
