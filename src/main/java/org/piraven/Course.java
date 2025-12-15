@@ -104,6 +104,12 @@ public class Course {
      * @return the new assignment in the course list
      */
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+        for (Assignment existingAssignment : assignments) {
+            if (existingAssignment.getAssignmentName().equalsIgnoreCase(assignmentName)) {
+                return false;
+            }
+        }
+
         Assignment newAssignment = new Assignment(assignmentName, weight, maxScore);
         assignments.add(newAssignment);
 
